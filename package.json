@@ -1,0 +1,32 @@
+{
+  "name": "grunt-split",
+  "version": "0.1.0",
+  "description": "Grunt plugin that lets you break up your Gruntfile by feature",
+  "main": "lib/grunt-split-loader.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nemesarial/grunt-split.git"
+  },
+  "keywords": [
+    "gruntplugin"
+  ],
+  "author": {
+    "name": "Mark Holtzhausen <nemesarial@gmail.com>"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nemesarial/grunt-split/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "lodash" : "~2.4.1",
+    "glob": "~3.2.6"
+  },
+  "readme": "Grunt plugin that lets you split your gruntfile configuration into multiple files. You are not limited to defining one task per configuration file. Each file extends the configuration object meaning each file can contain a slice of the full configuration stack. This is particularly useful if you distribute a seed project in which you want separate features to be enabled or disabled from the build process.",
+  "readmeFilename": "README.md",
+  "homepage": "https://github.com/nemesarial/grunt-split",
+  "_id": "grunt-split@0.1.0"
+}
