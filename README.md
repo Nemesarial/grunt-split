@@ -18,7 +18,7 @@ obj={
 
 // File 2
 obj={
-	key1:'value2'
+	key1:'value2',
 	key2:'value2'
 }
 
