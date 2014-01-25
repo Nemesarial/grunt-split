@@ -14,7 +14,33 @@ Grunt plugin that lets you split your gruntfile configuration into multiple file
 
 `npm install -D grunt-split`
 
-##Syntax
+##Grunt-Split Syntax
+```javascript
+var loadConfig=require('grunt-split');
+var settings={
+	files: ['path/to/file.conf.js','path/to/another/file.conf.js']
+};
+
+var parameters={
+	anyVariable: "you want to propagate to all the called scripts",
+	I_find: "this a great place to specify folders in your project",
+	folders: {
+		bower: '/bower_components/',
+		npm:'/npm_modules/'
+	}
+}
+
+var config=loadConfig(settings,parameters)
+grunt.initConfig(config);
+```
+Because there is only a single function in the package, you can do a shorthand call like so:
+
+```javascript
+var config=require('grunt-split')(settings,parameters);
+grunt.initConfig(config);
+```
+
+##Separate Config File Syntax
 The object returned on module.exports for each of the split config files have 3 possible properties
 in the root object:
 ```javascript
@@ -48,13 +74,16 @@ module.exports={
 ```javascript
 module.exports = function(grunt) {
 
-	require('grunt-split')(grunt,{
-			files:[
-				'grunt/bootstrap.conf.js',
-			//	'grunt/angular.conf.js',
-				'grunt/font-awesome.conf.js',
-			]
-		});
+	var config=require('grunt-split')(grunt,{
+		files:[
+			'grunt/bootstrap.conf.js',
+		//	'grunt/angular.conf.js',
+			'grunt/font-awesome.conf.js',
+		]
+	});
+
+	grunt.initConfig(config);
+	grunt.registerTask('default',[]);
 
 };
 ```
@@ -96,14 +125,16 @@ There is an alternative implementation that allows one to send parameters from t
 ```javascript
 module.exports = function(grunt) {
 
-	require('grunt-split')(grunt,{
-			files:[
-				'grunt/bootstrap.conf.js',
-			//	'grunt/angular.conf.js',
-				'grunt/font-awesome.conf.js',
-			]
-		},parameters);
-
+	var config = require('grunt-split')(grunt,{
+		files:[
+			'grunt/bootstrap.conf.js',
+		//	'grunt/angular.conf.js',
+			'grunt/font-awesome.conf.js',
+		]
+	},parameters);
+	
+	grunt.initConfig(config);
+	grunt.registerTask('default',[]);
 };
 ```
 
@@ -177,7 +208,7 @@ obj={
 // File 2
 obj={
 	key1:'value3',
-	key2:{KeyA:'value3',keyC:'value3'}
+	key2:{keyA:'value3',keyC:'value3'}
 }
 
 // Results In
