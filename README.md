@@ -104,7 +104,7 @@ module.exports = {
 		},
 		concat:{
 			bootstrap:{
-			//concatenate any css and javascript here
+				//concatenate any css and javascript here
 			}
 		},
 		watch:{
