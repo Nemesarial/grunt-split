@@ -82,9 +82,14 @@ module.exports = function(grunt) {
 		]
 	});
 
-	grunt.initConfig(config);
-	grunt.registerTask('default',[]);
+	// grunt.initConfig(config); 
+	// Deprecated v0.2.0
 
+	config.initConfig();
+	// Can also call grunt.initConfig(config.getConfig()) since v0.2.0
+	
+
+	grunt.registerTask('default',[]);
 };
 ```
 
@@ -151,12 +156,12 @@ module.exports = function(parameters){
 			less:{
 				bootstrap:{
 					//bootstrap less compilation configuration goes here
-	                                //use parameters here
+					//use parameters here
 				}
 			},
 			concat:{
 				bootstrap:{
-				//concatenate any css and javascript here
+					//concatenate any css and javascript here
 				}
 			},
 			watch:{
