@@ -31,13 +31,12 @@ var parameters={
 }
 
 var config=loadConfig(settings,parameters)
-grunt.initConfig(config);
-```
-Because there is only a single function in the package, you can do a shorthand call like so:
+// grunt.initConfig(config);
+// Deprecated v0.2.0
 
-```javascript
-var config=require('grunt-split')(settings,parameters);
-grunt.initConfig(config);
+config.initConfig();
+// Can also call grunt.initConfig(config.getConfig()) since v0.2.0
+	
 ```
 
 ##Separate Config File Syntax
